@@ -228,3 +228,5 @@ a:hover { color: var(--accent-deep); }
 }
 
 .intro + .post-list { border-top: 1px solid var(--rule); }
+
+.post-body .fin { text-align: center; font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin-top: 3em; }
