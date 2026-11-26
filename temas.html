@@ -1,0 +1,22 @@
+---
+layout: default
+title: Temas
+permalink: /temas/
+---
+<h1 class="page-title">Temas</h1>
+
+{%- assign sorted = site.tags | sort %}
+{%- for tag in sorted %}
+{%- assign name = tag[0] %}
+<section class="year" id="{{ name | slugify }}">
+  <h2 class="year-label">{{ site.tag_names[name] | default: name }}</h2>
+  <ul class="post-list">
+    {%- for p in tag[1] %}
+    <li>
+      <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+      <span class="tag">{{ p.date | date: "%Y" }}</span>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endfor %}

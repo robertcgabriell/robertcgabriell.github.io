@@ -1,0 +1,38 @@
+title: Robert C. Gabriell
+tagline: Historias de una vida ajetreada
+description: Relatos, canciones y escritos de Robert C. Gabriell.
+lang: es
+url: https://robertcgabriell.github.io
+baseurl: ""
+author: Robert C. Gabriell
+timezone: Europe/Madrid
+
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-redirect-from
+
+feed:
+  path: feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+tag_names:
+  Life: Vida
+  Songs: Canciones
+  Tales: Relatos
+  Science: Ciencia
+  Programming: Programación
+  Art: Arte
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
