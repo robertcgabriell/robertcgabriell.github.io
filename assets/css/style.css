@@ -31,19 +31,6 @@ body {
   flex-direction: column;
 }
 
-/* Niebla: veladuras gris azuladas muy suaves en la parte alta */
-.fog {
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 26rem;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(60% 70% at 15% 0%, rgba(74, 90, 106, 0.10), transparent 70%),
-    radial-gradient(50% 60% at 85% 10%, rgba(74, 90, 106, 0.08), transparent 70%),
-    radial-gradient(80% 50% at 50% 0%, rgba(255, 255, 255, 0.55), transparent 80%);
-  filter: blur(8px);
-}
 
 a { color: var(--accent); text-decoration: none; transition: color .2s ease; }
 a:hover { color: var(--accent-deep); }
@@ -57,39 +44,12 @@ a:hover { color: var(--accent-deep); }
   padding: 0 1.5rem;
 }
 
-.site-header { padding-top: 4.5rem; padding-bottom: 3rem; text-align: center; }
 
-.site-name {
-  font-family: var(--sans);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
 
-.site-nav {
-  margin-top: 0.9rem;
-  font-family: var(--sans);
-  font-size: 0.8125rem;
-  color: var(--muted);
-}
-.site-nav a { color: var(--muted); }
-.site-nav a:hover { color: var(--ink); }
-.site-nav span { margin: 0 0.5rem; }
 
 .site-main { flex: 1; padding-bottom: 4rem; }
 
 /* Portada */
-.intro { text-align: center; margin-bottom: 3.5rem; }
-.tagline {
-  font-family: var(--serif-display);
-  font-style: italic;
-  font-size: 1.6rem;
-  color: var(--ink-soft);
-  margin: 0;
-}
-.tagline::before, .tagline::after { content: "—"; color: var(--rule); margin: 0 0.6rem; }
 
 .year { margin-bottom: 2.75rem; scroll-margin-top: 2rem; }
 .year-label {
@@ -223,10 +183,83 @@ a:hover { color: var(--accent-deep); }
 
 @media (max-width: 480px) {
   body { font-size: 1.0625rem; }
-  .site-header { padding-top: 3rem; padding-bottom: 2.25rem; }
-  .post-list a { font-size: 1.2rem; }
+    .post-list a { font-size: 1.2rem; }
 }
 
-.intro + .post-list { border-top: 1px solid var(--rule); }
+.home-list { border-top: 1px solid var(--rule); }
 
 .post-body .fin { text-align: center; font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin-top: 3em; }
+
+/* Cabecera con imagen */
+.site-header {
+  position: relative;
+  max-width: none;
+  padding: 0;
+  margin: 0 0 3rem;
+  min-height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #6b5a3e;
+  background-size: cover;
+  background-position: center 35%;
+}
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(20, 18, 14, 0.35) 0%, rgba(20, 18, 14, 0.15) 55%, rgba(244, 241, 234, 0) 78%, var(--paper) 100%);
+}
+.site-header.is-home { min-height: 26rem; }
+.site-header-inner { position: relative; z-index: 1; padding: 2.5rem 1.5rem 3.5rem; }
+
+.site-name {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #fbf8f1;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+}
+.site-name:hover { color: #fff; }
+.site-nav {
+  margin-top: 0.9rem;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  color: rgba(251, 248, 241, 0.85);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+.site-nav a { color: rgba(251, 248, 241, 0.9); }
+.site-nav a:hover { color: #fff; }
+.site-nav span { margin: 0 0.5rem; }
+
+.tagline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  margin: 2.2rem 0 0;
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: clamp(1.6rem, 6vw, 2.4rem);
+  line-height: 1.2;
+  color: #fbf8f1;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+}
+.tagline::before, .tagline::after {
+  content: "";
+  flex: 0 0 1.75rem;
+  height: 1px;
+  background: rgba(251, 248, 241, 0.7);
+}
+.tagline span { max-width: 18ch; }
+@media (min-width: 640px) { .tagline span { max-width: none; } }
+
+@media (max-width: 480px) {
+  .site-header { min-height: 12rem; margin-bottom: 2.25rem; }
+  .site-header.is-home { min-height: 21rem; }
+  .tagline::before, .tagline::after { flex-basis: 1.1rem; }
+}

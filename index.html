@@ -2,11 +2,8 @@
 layout: default
 title: Escritos
 ---
-<section class="intro">
-  <p class="tagline">{{ site.tagline }}</p>
-</section>
 
-<ul class="post-list">
+<ul class="post-list home-list">
   {%- for p in site.posts %}
   <li>
     <a href="{{ p.url | relative_url }}">{{ p.title }}</a>

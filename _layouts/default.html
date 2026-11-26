@@ -12,16 +12,20 @@
   <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
 </head>
 <body>
-  <div class="fog" aria-hidden="true"></div>
-  <header class="site-header">
-    <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    <nav class="site-nav">
-      <a href="{{ '/' | relative_url }}">escritos</a>
-      <span aria-hidden="true">·</span>
-      <a href="{{ '/temas/' | relative_url }}">temas</a>
-      <span aria-hidden="true">·</span>
-      <a href="{{ '/sobremi/' | relative_url }}">sobre mí</a>
-    </nav>
+  <header class="site-header{% if page.url == '/' %} is-home{% endif %}" style="background-image: url('{{ '/images/feature-header.jpg' | relative_url }}')">
+    <div class="site-header-inner">
+      <a class="site-name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <nav class="site-nav">
+        <a href="{{ '/' | relative_url }}">escritos</a>
+        <span aria-hidden="true">·</span>
+        <a href="{{ '/temas/' | relative_url }}">temas</a>
+        <span aria-hidden="true">·</span>
+        <a href="{{ '/sobremi/' | relative_url }}">sobre mí</a>
+      </nav>
+      {%- if page.url == '/' %}
+      <p class="tagline"><span>{{ site.tagline }}</span></p>
+      {%- endif %}
+    </div>
   </header>
 
   <main class="site-main">
