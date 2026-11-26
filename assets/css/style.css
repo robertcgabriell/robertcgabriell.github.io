@@ -259,7 +259,9 @@ a:hover { color: var(--accent-deep); }
 @media (min-width: 640px) { .tagline span { max-width: none; } }
 
 @media (max-width: 480px) {
-  .site-header { min-height: 12rem; margin-bottom: 2.25rem; }
-  .site-header.is-home { min-height: 21rem; }
+  .site-header { min-height: 9rem; margin-bottom: 1.75rem; }
+  .site-header.is-home { min-height: 14.5rem; }
+  .site-header-inner { padding: 1.5rem 1.25rem 2.25rem; }
+  .tagline { margin-top: 1.25rem; font-size: 1.55rem; }
   .tagline::before, .tagline::after { flex-basis: 1.1rem; }
 }
