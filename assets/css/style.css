@@ -208,8 +208,6 @@ a:hover { color: var(--accent-deep); }
   object-fit: cover;
   border-radius: 50%;
   margin: 0 auto 1.75rem;
-  filter: grayscale(100%) contrast(0.9) brightness(1.05);
-  opacity: 0.9;
 }
 
 .site-footer {
