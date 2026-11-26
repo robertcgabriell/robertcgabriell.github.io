@@ -14,7 +14,6 @@ permalink: /temas/
     {%- for p in tag[1] %}
     <li>
       <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
-      <span class="tag">{{ p.date | date: "%Y" }}</span>
     </li>
     {%- endfor %}
   </ul>
